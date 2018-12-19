@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: container-mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=Suporte99
+    - MYSQL_DATABASE=db_papelaria
+    - MYSQL_USER=suporte
+    - MYSQL_PASSWORD=Suporte99
+    ports:
+      - "3307:3306"
+    volumes:
+      # Dados
+      - ./data_mysql:/var/lib/mysql
+      # Arquivo SQL com schema
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql

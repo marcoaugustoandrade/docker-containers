@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  mysql:
+    image: mariadb
+    container_name: container-mariadb
+    environment:
+    - MYSQL_ROOT_PASSWORD=Suporte99
+    - MYSQL_DATABASE=db_livraria
+    - MYSQL_USER=suporte
+    - MYSQL_PASSWORD=Suporte99
+    ports:
+      - "3306:3306"
+    volumes:
+      # Dados
+      - ./data_mysql:/var/lib/mysql
+      # Arquivo SQL com schema
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
